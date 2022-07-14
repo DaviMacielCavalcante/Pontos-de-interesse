@@ -4,20 +4,32 @@ import java.io.Serializable;
 import java.util.Objects;
 
 import javax.management.InvalidAttributeValueException;
-import javax.validation.constraints.NotEmpty;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "pois")
 public class POI implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;	
 	
+	@Column(name = "nome")
 	private String nome;
 	
-	@NotEmpty(message = "O campo deve ser preenchido")
+	
+	@Column(name = "cx")
 	private Integer cx;
 	
-	@NotEmpty(message = "O campo deve ser preenchido")
+	
+	@Column(name = "cy")
 	private Integer cy;
 	
 	public POI() {		
